@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3  
 """ Redis Module """
 
 from functools import wraps
@@ -9,7 +9,7 @@ from typing import Callable
 redis_ = redis.Redis()
 
 
-def count_requests(method: Callable) -> Callable:
+def count_requests(method: Callable) -> Callable:  
     """ Decortator for counting """
     @wraps(method)
     def wrapper(url):  # sourcery skip: use-named-expression
@@ -26,7 +26,7 @@ def count_requests(method: Callable) -> Callable:
 
 
 @count_requests
-def get_page(url: str) -> str:
+def get_page(url: str) -> str:  
     """ Obtain the HTML content of a  URL """
     req = requests.get(url)
     return req.text
